@@ -14,7 +14,6 @@
   <a href="{{ url('/add') }}">
     <button>ADD CONTACT</button>
   </a>
-  @csrf
   <table>
     <tr>
       <th>Actions</th>
@@ -25,9 +24,13 @@
     </tr>
     @foreach ($contacts as $contact)
       <tr>
-        <td>
-          (<a href="{{ url('edit/' . $contact->id) }}">EDIT</a>)
-          (<a href="{{ url('delete/' . $contact->id) }}">DEL</a>)
+        <td class="actions">
+          <a href="{{ url('edit' , $contact->id) }}">(EDIT)</a>
+					<form method="POST" action="{{ url('delete/'. $contact->id )}}">
+						@csrf 
+						<button type="submit" id='no-styles'>(DEL)</button>
+					</form>
+          {{-- <a href="{{ url('delete' , $contact->id) }}">(DEL)</a> --}}
         </td>
         <td>{{ $contact->last_name }}</td>
         <td>{{ $contact->first_name }}</td>

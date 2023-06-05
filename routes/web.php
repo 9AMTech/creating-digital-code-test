@@ -18,5 +18,5 @@ Route::get('/', [PhonebookController::class, 'index']);
 Route::get('/add', [PhonebookController::class, 'add']);
 Route::post('/insert', [PhonebookController::class, 'insert']);
 Route::get('/edit/{id}', [PhonebookController::class, 'edit']);
-Route::post('/update', [PhonebookController::class, 'update ']);
-Route::post('/delete', [PhonebookController::class, 'delete']);
+Route::post('/update/{id}', [PhonebookController::class, 'update']);
+Route::post('/delete/{id}', [PhonebookController::class, 'delete']);

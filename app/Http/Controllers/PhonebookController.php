@@ -31,7 +31,8 @@ class PhonebookController extends Controller
         {
             $contact = Contact::find($id);
 
-            return view('edit')->with('contacts', $contact);
+            return view('edit')->with('contact', $contact);
+            // return view('edit', ['contact' => $contact]);
         }
 
     public function update(Request $request, string $id)
@@ -43,7 +44,10 @@ class PhonebookController extends Controller
         return redirect('/');
     }
 
-    public function delete()
+    public function delete(string $id)
     {
+        Contact::destroy($id);
+
+        return redirect('/');
     }
 }

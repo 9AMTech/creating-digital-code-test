@@ -11,7 +11,7 @@
 
 <body>
   <h1>Edit a Contact!</h1>
-  <form action="{{ url('update') }}" method="POST">
+  <form action="{{ url('update/' . $contact->id) }}" method="POST">
     @csrf
     <table>
       <tr>
